@@ -49,7 +49,7 @@ import/atlas_max_width=128
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/git_describe/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
