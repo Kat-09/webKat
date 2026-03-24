@@ -37,11 +37,10 @@ formats/gzip/compression_level=9
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
-window/size/borderless=true
+window/size/mode=1
 window/frame_pacing/android/swappy_mode=0
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="keep_height"
 window/handheld/orientation=4
 
 [editor]

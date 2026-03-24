@@ -235,29 +235,30 @@ metadata/_edit_lock_ = true
 z_index = 4096
 z_as_relative = false
 layout_mode = 0
-offset_left = -2671.0002
-offset_top = -1695.0
-offset_right = -751.00024
-offset_bottom = -615.0
+offset_left = -2956.0
+offset_top = -1576.0
+offset_right = -1036.0
+offset_bottom = -496.0
 scale = Vector2(4.0758634, 4.5975)
 color = Color(0, 0, 0, 0)
 
 [node name="Logo" type="TextureRect" parent="." unique_id=232671710]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -500.99997
-offset_top = 188.00002
-offset_right = 502.0
-offset_bottom = 383.00003
+anchors_preset = -1
+anchor_left = 0.23900001
+anchor_top = 0.12900001
+anchor_right = 0.76100004
+anchor_bottom = 0.328
+offset_left = 0.11999512
+offset_top = -0.4200058
+offset_right = 0.8798828
+offset_bottom = -0.44000244
 grow_horizontal = 2
 pivot_offset = Vector2(501.5, 97.5)
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
 texture = ExtResource("2_frkhe")
-stretch_mode = 4
-metadata/_edit_lock_ = true
+stretch_mode = 3
 
 [node name="Menu" type="Control" parent="." unique_id=933811158]
 layout_mode = 1
@@ -270,18 +271,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MenuMargin" type="MarginContainer" parent="Menu" unique_id=1468441629]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.9984375
-anchor_top = 0.15
-anchor_right = 1.9984376
-anchor_bottom = 0.9814815
-offset_left = -1917.0
-offset_top = 18.0
-offset_right = -1916.9592
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 600
+theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 600
 metadata/_edit_use_anchors_ = true
 
@@ -319,6 +315,39 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 24
 text = "Start Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Multiplayer" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1285563110]
+modulate = Color(0.2901961, 0.2901961, 0.2901961, 1)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_03owx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_20pc6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5vvyt")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_h1m7h")
+theme_override_styles/focus = SubResource("StyleBoxTexture_c6i3y")
+disabled = true
+text = " 
+ "
+
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/Multiplayer" unique_id=1499268935]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(360, 28.5)
+theme = SubResource("Theme_5vvyt")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "Multiplayer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -390,7 +419,7 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1332739739]
+[node name="ExitBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1636623279]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
@@ -398,13 +427,13 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_03owx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_20pc6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_5vvyt")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_346fj")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_2w5on")
 theme_override_styles/focus = SubResource("StyleBoxTexture_c6i3y")
 text = " 
  "
 script = ExtResource("8_1p5hy")
 
-[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/ExitBtn" unique_id=1838829185]
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/ExitBtn" unique_id=1629290195]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -559,6 +588,11 @@ autoplay = &"FadeOut2/FadeIn"
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_pressed"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_mouse_entered"]

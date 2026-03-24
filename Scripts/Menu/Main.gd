@@ -4,6 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+	
 	var dir = DirAccess.open("user://")
 	if dir.dir_exists("user://Launcher/Game/"):
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = false

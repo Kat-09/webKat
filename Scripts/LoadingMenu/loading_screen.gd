@@ -61,4 +61,6 @@ func _exit_tree() -> void:
 	thread.wait_to_finish()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	var dir = DirAccess.open("user://Launcher/Temp/")
+	dir.remove("user://Launcher/Temp/")
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")

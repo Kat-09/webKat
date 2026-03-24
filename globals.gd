@@ -2,7 +2,7 @@ extends Node
 
 var fork = "https://github.com/smartcmd/MinecraftConsoles/releases/download/"
 var forkExeName = "Minecraft.Client.exe"
-var forkZipName = "MCLEWindows64.zip"
+var forkZipName = "LCEWindows64.zip"
 var forkName = "smartcmd"
 var forkTag = "nightly"
 var justCameFromUpdate = false

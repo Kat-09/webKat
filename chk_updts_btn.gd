@@ -37,15 +37,15 @@ func enableButtons():
 	disabled = false
 	$"../OptionsBtn".disabled = false
 	$"../ExitBtn".disabled = false
-	$"../../".modulate = Color(1.0, 1.0, 1.0, 1.0)
+	$"../../../".modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 var dir = DirAccess.open("user://")
 func _on_pressed() -> void:
 	if disabled == false:
+		disableButtons()
 		dir.make_dir_recursive("user://Launcher/Temp/")
 		req.download_file = "user://Launcher/Temp/Minecraft.Client.exe"
 		req.request(Shitfart.fork + Shitfart.forkTag + "/" + Shitfart.forkExeName)
-		disableButtons()
 		$Label.text = "Checking for updates..."
 		updateClickCount += 1
 
@@ -63,6 +63,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 		if updateClickCount == 3:
 			$Label.text = "Click me again to force-update!"
 		if updateClickCount >= 4:
+			$Label.text = "Force Updating!"
 			$"../../../../AnimationPlayer".play("FadeOut")
 
 func loadPreviousHashFromFile():
