@@ -5,6 +5,8 @@ extends Control
 
 func _ready() -> void:
 	
+	Shitfart._shitFartInit()
+	
 	var dir = DirAccess.open("user://")
 	if dir.dir_exists("user://Launcher/Game/"):
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = false

@@ -25,6 +25,7 @@ func _on_pressed() -> void:
 	if disabled == false:
 		thread = Thread.new()
 		thread.start(_launchGame.bind())
+	
 
 func minimize():
 	get_tree().root.mode = Window.MODE_MINIMIZED

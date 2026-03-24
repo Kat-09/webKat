@@ -9,7 +9,7 @@ var justCameFromUpdate = false
 var log = []
 var launchMethod = ""
 
-func _ready() -> void:
+func _shitFartInit():
 	match OS.get_name():
 		"Windows":
 			launchMethod = ""
