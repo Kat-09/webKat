@@ -37,10 +37,11 @@ formats/gzip/compression_level=9
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=1
+window/size/mode=3
+window/size/borderless=true
 window/frame_pacing/android/swappy_mode=0
-window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 window/handheld/orientation=4
 
 [editor]
@@ -53,8 +54,9 @@ enabled=PackedStringArray()
 
 [gui]
 
-fonts/dynamic_fonts/use_oversampling=false
-theme/default_font_antialiasing=2
+theme/default_font_antialiasing=0
+theme/default_font_hinting=0
+theme/default_font_subpixel_positioning=0
 
 [physics]
 

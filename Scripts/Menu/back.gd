@@ -19,5 +19,5 @@ func _on_focus_exited() -> void:
 
 func _on_pressed() -> void:
 	if disabled == false:
-		$"..".disabled = false
+		$"..".hide()
 		$"../../MenuVBox".show()

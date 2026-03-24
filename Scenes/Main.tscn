@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://x5qnhqgjq84s" path="res://Assets/Panorama/panorama2.png" id="9_sxkr1"]
 [ext_resource type="Texture2D" uid="uid://bd2jlnesdw4ep" path="res://Assets/Panorama/panorama3.png" id="10_fq0cl"]
 [ext_resource type="Script" uid="uid://b4pwot6far0o" path="res://Scripts/Menu/back.gd" id="11_2w5on"]
+[ext_resource type="Texture2D" uid="uid://7hwexu7e8tnf" path="res://Assets/Menu/Menu/hudHud.png" id="11_346fj"]
 [ext_resource type="Texture2D" uid="uid://0oaigkp4styp" path="res://Assets/Panorama/panorama4.png" id="11_hwpts"]
 [ext_resource type="Texture2D" uid="uid://bonm22vstld" path="res://Assets/Panorama/panorama5.png" id="12_jyqft"]
 
@@ -234,13 +235,19 @@ metadata/_edit_lock_ = true
 [node name="FadeOut" type="ColorRect" parent="." unique_id=1260782072]
 z_index = 4096
 z_as_relative = false
-layout_mode = 0
-offset_left = -2956.0
-offset_top = -1576.0
-offset_right = -1036.0
-offset_bottom = -496.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.4920001
+anchor_top = -2.091
+anchor_right = 2.584
+anchor_bottom = 2.5070002
+offset_left = 0.6401367
+offset_top = 0.2800293
+offset_right = -5905.2803
+offset_bottom = -3885.5603
 scale = Vector2(4.0758634, 4.5975)
 color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="Logo" type="TextureRect" parent="." unique_id=232671710]
 layout_mode = 1
@@ -277,8 +284,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 600
-theme_override_constants/margin_top = 200
+theme_override_constants/margin_top = 400
 theme_override_constants/margin_right = 600
+theme_override_constants/margin_bottom = 200
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuVBox" type="VBoxContainer" parent="Menu/MenuMargin" unique_id=1339386500]
@@ -318,7 +326,7 @@ text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Multiplayer" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1285563110]
+[node name="MultiBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1285563110]
 modulate = Color(0.2901961, 0.2901961, 0.2901961, 1)
 layout_mode = 2
 size_flags_vertical = 4
@@ -333,7 +341,7 @@ disabled = true
 text = " 
  "
 
-[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/Multiplayer" unique_id=1499268935]
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/MultiBtn" unique_id=1499268935]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -456,6 +464,31 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu/MenuMargin/OptionsVBox" unique_id=1071143100]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("11_346fj")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="RepoURL" type="Label" parent="Menu/MenuMargin/OptionsVBox/NinePatchRect" unique_id=274984565]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -2.65625
+anchor_right = 1.0
+anchor_bottom = 3.65625
+offset_top = 42.5
+offset_bottom = -42.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST
+
+
+"
+metadata/_edit_use_anchors_ = true
 
 [node name="BackBtn" type="Button" parent="Menu/MenuMargin/OptionsVBox" unique_id=1767482589]
 layout_mode = 2
@@ -588,11 +621,11 @@ autoplay = &"FadeOut2/FadeIn"
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_pressed"]
-[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/Multiplayer" to="Menu/MenuMargin/MenuVBox/Multiplayer" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_pressed"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_mouse_entered"]
@@ -613,4 +646,5 @@ autoplay = &"FadeOut2/FadeIn"
 [connection signal="focus_exited" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_animation_player_animation_finished"]

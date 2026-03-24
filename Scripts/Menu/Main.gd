@@ -12,4 +12,6 @@ func _ready() -> void:
 	else:
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = true
 		$Menu/MenuMargin/MenuVBox/StartBtn.visible = false
+		$Menu/MenuMargin/MenuVBox/MultiBtn.disabled = true
+		$Menu/MenuMargin/MenuVBox/MultiBtn.visible = false
 		$Menu/MenuMargin/MenuVBox/ChkUpdtsBtn/Label.text = "Download Game!"
