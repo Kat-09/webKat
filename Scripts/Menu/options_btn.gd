@@ -17,3 +17,8 @@ func _on_focus_entered() -> void:
 func _on_focus_exited() -> void:
 	if disabled == false:
 		$Label.add_theme_color_override("font_color",Color.WHITE)
+
+
+func _on_pressed() -> void:
+	hide()
+	$"../../OptionsVBox".show()

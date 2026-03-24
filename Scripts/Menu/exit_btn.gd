@@ -19,4 +19,5 @@ func _on_focus_exited() -> void:
 		$Label.add_theme_color_override("font_color",Color.WHITE)
 
 func _on_pressed() -> void:
-	get_tree().quit()
+	hide()
+	$"..".show()

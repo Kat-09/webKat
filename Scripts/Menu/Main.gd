@@ -6,9 +6,9 @@ extends Control
 func _ready() -> void:
 	var dir = DirAccess.open("user://")
 	if dir.dir_exists("user://Launcher/Game/"):
-		$Menu/MenuMargin/MenuVBox/MainMenu/StartBtn.disabled = false
-		$Menu/MenuMargin/MenuVBox/MainMenu/StartBtn.visible = true
+		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = false
+		$Menu/MenuMargin/MenuVBox/StartBtn.visible = true
 	else:
-		$Menu/MenuMargin/MenuVBox/MainMenu/StartBtn.disabled = true
-		$Menu/MenuMargin/MenuVBox/MainMenu/StartBtn.visible = false
-		$Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn/Label.text = "Download Game!"
+		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = true
+		$Menu/MenuMargin/MenuVBox/StartBtn.visible = false
+		$Menu/MenuMargin/MenuVBox/ChkUpdtsBtn/Label.text = "Download Game!"

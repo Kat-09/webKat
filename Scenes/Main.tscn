@@ -290,13 +290,8 @@ theme_override_constants/separation = 16
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="MainMenu" type="Node" parent="Menu/MenuMargin/MenuVBox" unique_id=948659912]
-
-[node name="StartBtn" type="Button" parent="Menu/MenuMargin/MenuVBox/MainMenu" unique_id=989615509]
-offset_left = 600.0
-offset_top = 494.0
-offset_right = 1320.0
-offset_bottom = 550.0
+[node name="StartBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=989615509]
+layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -309,7 +304,7 @@ text = "
  "
 script = ExtResource("5_erwvk")
 
-[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" unique_id=858343084]
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/StartBtn" unique_id=858343084]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -327,11 +322,8 @@ text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ChkUpdtsBtn" type="Button" parent="Menu/MenuMargin/MenuVBox/MainMenu" unique_id=1540002477]
-offset_left = 600.0
-offset_top = 566.0
-offset_right = 1320.0
-offset_bottom = 622.0
+[node name="ChkUpdtsBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1540002477]
+layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -344,7 +336,7 @@ text = "
  "
 script = ExtResource("8_erwvk")
 
-[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" unique_id=1548340613]
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" unique_id=1548340613]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -362,15 +354,12 @@ text = "Check for Updates"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HTTPRequest" type="HTTPRequest" parent="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" unique_id=566564180]
+[node name="HTTPRequest" type="HTTPRequest" parent="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" unique_id=566564180]
 use_threads = true
 timeout = 28.9
 
-[node name="OptionsBtn" type="Button" parent="Menu/MenuMargin/MenuVBox/MainMenu" unique_id=740665237]
-offset_left = 600.0
-offset_top = 638.0
-offset_right = 1320.0
-offset_bottom = 694.0
+[node name="OptionsBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=740665237]
+layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -383,7 +372,7 @@ text = "
  "
 script = ExtResource("7_frkhe")
 
-[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" unique_id=1136965235]
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/OptionsBtn" unique_id=1136965235]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -401,11 +390,8 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitBtn" type="Button" parent="Menu/MenuMargin/MenuVBox/MainMenu" unique_id=1332739739]
-offset_left = 600.0
-offset_top = 710.0
-offset_right = 1320.0
-offset_bottom = 766.0
+[node name="ExitBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1332739739]
+layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -418,7 +404,7 @@ text = "
  "
 script = ExtResource("8_1p5hy")
 
-[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" unique_id=1838829185]
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/ExitBtn" unique_id=1838829185]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -433,6 +419,45 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 24
 text = "Exit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsVBox" type="VBoxContainer" parent="Menu/MenuMargin" unique_id=1021634001]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ExitBtn" type="Button" parent="Menu/MenuMargin/OptionsVBox" unique_id=1767482589]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_03owx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_20pc6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5vvyt")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_346fj")
+theme_override_styles/focus = SubResource("StyleBoxTexture_c6i3y")
+text = " 
+ "
+script = ExtResource("8_1p5hy")
+
+[node name="Label" type="Label" parent="Menu/MenuMargin/OptionsVBox/ExitBtn" unique_id=1939581456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(360, 28.5)
+theme = SubResource("Theme_5vvyt")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "Back to Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -530,24 +555,30 @@ libraries/ = SubResource("AnimationLibrary_346fj")
 libraries/FadeOut2 = SubResource("AnimationLibrary_sxkr1")
 autoplay = &"FadeOut2/FadeIn"
 
-[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/StartBtn" method="_on_pressed"]
-[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" method="_on_pressed"]
-[connection signal="request_completed" from="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn/HTTPRequest" to="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" method="_on_http_request_request_completed"]
-[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/OptionsBtn" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" to="Menu/MenuMargin/MenuVBox/MainMenu/ExitBtn" method="_on_pressed"]
-[connection signal="animation_finished" from="AnimationPlayer" to="Menu/MenuMargin/MenuVBox/MainMenu/ChkUpdtsBtn" method="_on_animation_player_animation_finished"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_pressed"]
+[connection signal="request_completed" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn/HTTPRequest" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_http_request_request_completed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/OptionsVBox/ExitBtn" to="Menu/MenuMargin/OptionsVBox/ExitBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/OptionsVBox/ExitBtn" to="Menu/MenuMargin/OptionsVBox/ExitBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/OptionsVBox/ExitBtn" to="Menu/MenuMargin/OptionsVBox/ExitBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/OptionsVBox/ExitBtn" to="Menu/MenuMargin/OptionsVBox/ExitBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/OptionsVBox/ExitBtn" to="Menu/MenuMargin/OptionsVBox/ExitBtn" method="_on_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_animation_player_animation_finished"]
