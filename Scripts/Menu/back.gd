@@ -21,8 +21,9 @@ func _on_pressed() -> void:
 	if disabled == false:
 		$"..".hide()
 		$"../../MenuVBox".show()
-		if Shitfart.forkName != "mclemp":
-			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
-			file.store_string($"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text)
-			var file2 = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.txt", FileAccess.WRITE)
-			file2.store_string($"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text)
+		var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
+		file.store_string($"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text)
+		var file2 = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
+		file2.store_string($"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text)
+		$"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text = Shitfart.username
+		$"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text = Shitfart.uid
