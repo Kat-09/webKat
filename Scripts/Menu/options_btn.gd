@@ -22,3 +22,5 @@ func _on_pressed() -> void:
 	if disabled == false:
 		$"..".hide()
 		$"../../OptionsVBox".show()
+		var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.txt", FileAccess.WRITE)
+		file.store_string(Shitfart.uid)
