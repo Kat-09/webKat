@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://blwbea2biqw5c" path="res://Assets/Panorama/panorama1.png" id="8_0sclb"]
 [ext_resource type="Script" uid="uid://c3os83fmh366r" path="res://Scripts/Menu/exit_btn.gd" id="8_1p5hy"]
 [ext_resource type="Script" uid="uid://dogrihdcxlepe" path="res://chk_updts_btn.gd" id="8_erwvk"]
+[ext_resource type="Script" uid="uid://06xfjmbrcyc" path="res://Scripts/reset.gd" id="9_0sclb"]
 [ext_resource type="Texture2D" uid="uid://x5qnhqgjq84s" path="res://Assets/Panorama/panorama2.png" id="9_sxkr1"]
 [ext_resource type="Texture2D" uid="uid://bd2jlnesdw4ep" path="res://Assets/Panorama/panorama3.png" id="10_fq0cl"]
 [ext_resource type="Script" uid="uid://b4pwot6far0o" path="res://Scripts/Menu/back.gd" id="11_2w5on"]
@@ -22,6 +23,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wkp8b"]
 shader = ExtResource("1_grg3l")
 shader_parameter/blur_amount = 2.90000013775
+
+[sub_resource type="Theme" id="Theme_5vvyt"]
+default_font = ExtResource("6_2w5on")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03owx"]
 texture = ExtResource("3_1p5hy")
@@ -37,9 +41,6 @@ texture = ExtResource("3_1p5hy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6i3y"]
 texture = ExtResource("4_h1m7h")
-
-[sub_resource type="Theme" id="Theme_5vvyt"]
-default_font = ExtResource("6_2w5on")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_erwvk"]
 texture = ExtResource("3_1p5hy")
@@ -275,6 +276,29 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Label2" type="Label" parent="Menu" unique_id=1504617142]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -426.0
+offset_top = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(360, 28.5)
+theme = SubResource("Theme_5vvyt")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "Klauncher by Kat,
+https://github.com/Kat-09/KLauncher"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="MenuMargin" type="MarginContainer" parent="Menu" unique_id=1468441629]
 layout_mode = 1
 anchors_preset = 15
@@ -393,6 +417,38 @@ vertical_alignment = 1
 [node name="HTTPRequest" type="HTTPRequest" parent="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" unique_id=566564180]
 use_threads = true
 timeout = 28.9
+
+[node name="Reset" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1404979311]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_03owx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_20pc6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5vvyt")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_erwvk")
+theme_override_styles/focus = SubResource("StyleBoxTexture_c6i3y")
+text = " 
+ "
+script = ExtResource("9_0sclb")
+
+[node name="Label" type="Label" parent="Menu/MenuMargin/MenuVBox/Reset" unique_id=556755593]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(360, 28.5)
+theme = SubResource("Theme_5vvyt")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "Reset Data?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OptionsBtn" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=740665237]
 layout_mode = 2
@@ -582,6 +638,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+text = "https://github.com/smartcmd/MinecraftConsoles/releases/download/"
 placeholder_text = "e.g. https://github.com/smartcmd/MinecraftConsoles/releases/download/"
 emoji_menu_enabled = false
 tab_input_mode = false
@@ -614,7 +671,8 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
-placeholder_text = "Fork Name"
+text = "smartcmd"
+placeholder_text = "Can be anything you want."
 emoji_menu_enabled = false
 tab_input_mode = false
 caret_type = 1
@@ -646,6 +704,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+text = "nightly"
 placeholder_text = "Fork Download Tag"
 emoji_menu_enabled = false
 tab_input_mode = false
@@ -678,6 +737,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+text = "Minecraft.Client.exe"
 placeholder_text = "Fork Exe Name"
 emoji_menu_enabled = false
 tab_input_mode = false
@@ -710,6 +770,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+text = "LCEWindows64.zip"
 placeholder_text = "Fork Zip Name"
 emoji_menu_enabled = false
 tab_input_mode = false
@@ -865,6 +926,11 @@ autoplay = &"FadeOut2/FadeIn"
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_pressed"]
 [connection signal="request_completed" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn/HTTPRequest" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_http_request_request_completed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_pressed"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_mouse_entered"]

@@ -9,30 +9,39 @@ func _ready() -> void:
 	
 	doStuff()
 	
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("shift") and $Menu/MenuMargin/MenuVBox/ChkUpdtsBtn.disabled == false:
+		$Menu/MenuMargin/MenuVBox/Reset.visible = true
+		$Menu/MenuMargin/MenuVBox/Reset.disabled = false
+	else:
+		$Menu/MenuMargin/MenuVBox/Reset.clickCount = 0
+		$Menu/MenuMargin/MenuVBox/Reset/Label.text = "Reset Data?"
+		$Menu/MenuMargin/MenuVBox/Reset.visible = false
+		$Menu/MenuMargin/MenuVBox/Reset.disabled = true
+	
 func doStuff():
 	var dir = DirAccess.open("user://")
-	if dir.dir_exists("user://Launcher/Game/"+Shitfart.forkName+"/"):
+	if dir.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/username.txt"):
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = false
 		$Menu/MenuMargin/MenuVBox/StartBtn.visible = true
-		Shitfart.uid = gen_unique_string(16)
-		if (FileAccess.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/"+"username.txt")):
-			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/"+Shitfart.forkName+"/"+"username.txt")
+		if (FileAccess.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/username.txt")):
+			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/"+Shitfart.forkName+"/username.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit.text = Thing
 			Shitfart.username = Thing
 		else:
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit.text = Shitfart.username
-			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"username.txt", FileAccess.WRITE)
+			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
 			file.store_string(Shitfart.username)
 			
-		if (FileAccess.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/"+"uid.dat")):
-			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/"+Shitfart.forkName+"/"+"uid.dat")
+		if (FileAccess.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat")):
+			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit.text = Thing
 			Shitfart.uid = Thing
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit.text = Shitfart.uid
-			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/"+"uid.dat", FileAccess.WRITE)
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit.text = Shitfart.username
+			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
 			file.store_string(Shitfart.uid)
-			
+		
 		if (FileAccess.file_exists("user://Launcher/Game/fork.txt")):
 			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/fork.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text = Thing
@@ -68,7 +77,7 @@ func doStuff():
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text = Shitfart.forkExeName
 			var file = FileAccess.open("user://Launcher/Game/forkExeName.txt", FileAccess.WRITE)
 			file.store_string(Shitfart.forkExeName)
-			
+				
 		if (FileAccess.file_exists("user://Launcher/Game/forkZipName.txt")):
 			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/forkZipName.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text = Thing
@@ -77,19 +86,17 @@ func doStuff():
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text = Shitfart.forkZipName
 			var file = FileAccess.open("user://Launcher/Game/forkZipName.txt", FileAccess.WRITE)
 			file.store_string(Shitfart.forkZipName)
-		
 	else:
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = true
 		$Menu/MenuMargin/MenuVBox/StartBtn.visible = false
 		$Menu/MenuMargin/MenuVBox/MultiBtn.disabled = true
 		$Menu/MenuMargin/MenuVBox/MultiBtn.visible = false
+		$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl.visible = false
+		$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl.visible = false
+		Shitfart.fork = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text
+		Shitfart.forkName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text
+		Shitfart.forkTag = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text
+		Shitfart.forkExeName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text
+		Shitfart.forkZipName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text
 		$Menu/MenuMargin/MenuVBox/ChkUpdtsBtn/Label.text = "Download Game!"
-		dir.make_dir_recursive("user://Launcher/Game/"+Shitfart.forkName+"/")
-		doStuff()
-
-var ascii_letters_and_digits = "ABCDEF0123456789"
-func gen_unique_string(length: int) -> String:
-	var result = ""
-	for i in range(length):
-		result += ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()]
-	return "0x" + result
+		

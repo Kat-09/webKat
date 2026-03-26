@@ -22,3 +22,4 @@ func _on_pressed() -> void:
 	if disabled == false:
 		$"..".hide()
 		$"../../OptionsVBox".show()
+		

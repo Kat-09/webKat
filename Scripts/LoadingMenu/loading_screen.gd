@@ -6,9 +6,23 @@ var finished = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var dir = DirAccess.open("user://")
-	dir.make_dir_recursive("user://Launcher/Game/")
+	dir.make_dir_recursive("user://Launcher/Game/"+Shitfart.forkName)
+	
+	var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
+	file.store_string("KLauncherUser")
+	Shitfart.uid = gen_unique_string(16)
+	var file2 = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
+	file2.store_string(Shitfart.username)
+	
 	req.download_file = "user://Launcher/Temp/Minecraft.Client.zip"
 	req.request(Shitfart.fork + Shitfart.forkTag + "/" + Shitfart.forkZipName)
+
+func gen_unique_string(length: int) -> String:
+	var ascii_letters_and_digits = "ABCDEF0123456789"
+	var result = ""
+	for i in range(length):
+		result += ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()]
+	return "0x" + result
 
 func _process(delta: float) -> void:
 	#Run finish() once, i couldn't figure out a better way to do this, there probably is a better way though.
