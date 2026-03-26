@@ -19,11 +19,31 @@ func _on_focus_exited() -> void:
 
 func _on_pressed() -> void:
 	if disabled == false:
+		var dir = DirAccess.open("user://Launcher/Game/")
+		if !(Shitfart.username == "" and Shitfart.uid == ""  and Shitfart.fork == ""  and Shitfart.forkName == ""  and Shitfart.forkTag == ""  and Shitfart.forkExeName == ""  and Shitfart.forkZipName == ""):
+			Shitfart.username = $"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text
+			Shitfart.uid = $"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text
+			Shitfart.fork = $"../HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit".text
+			Shitfart.forkName = $"../HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit".text
+			Shitfart.forkTag = $"../HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit".text
+			Shitfart.forkExeName = $"../HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit".text
+			Shitfart.forkZipName = $"../HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit".text
+			if !dir.dir_exists("user://Launcher/Game/"+Shitfart.forkName+"/"):
+				dir.make_dir_recursive("user://Launcher/Game/"+Shitfart.forkName+"/")
+			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
+			file.store_string(Shitfart.username)
+			var file2 = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
+			file2.store_string(Shitfart.uid)
+			var file3 = FileAccess.open("user://Launcher/Game/fork.txt", FileAccess.WRITE)
+			file3.store_string(Shitfart.fork)
+			var file4 = FileAccess.open("user://Launcher/Game/forkName.txt", FileAccess.WRITE)
+			file4.store_string(Shitfart.forkName)
+			var file5 = FileAccess.open("user://Launcher/Game/forkTag.txt", FileAccess.WRITE)
+			file5.store_string(Shitfart.forkTag)
+			var file6 = FileAccess.open("user://Launcher/Game/forkExeName.txt", FileAccess.WRITE)
+			file6.store_string(Shitfart.forkExeName)
+			var file7 = FileAccess.open("user://Launcher/Game/forkZipName.txt", FileAccess.WRITE)
+			file7.store_string(Shitfart.forkZipName)
+		
 		$"..".hide()
 		$"../../MenuVBox".show()
-		var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
-		file.store_string($"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text)
-		var file2 = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
-		file2.store_string($"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text)
-		$"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text = Shitfart.username
-		$"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text = Shitfart.uid

@@ -289,7 +289,6 @@ theme_override_constants/margin_bottom = 200
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuVBox" type="VBoxContainer" parent="Menu/MenuMargin" unique_id=1339386500]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
@@ -460,6 +459,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionsVBox" type="VBoxContainer" parent="Menu/MenuMargin" unique_id=1021634001]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
@@ -490,7 +490,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer" unique_id=262985844]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 28
 metadata/_edit_use_anchors_ = true
 
 [node name="UsernameLbl" type="Label" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer" unique_id=276665549]
@@ -557,6 +557,38 @@ caret_type = 1
 caret_blink = true
 text_direction = 1
 
+[node name="ForkLbl" type="Label" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer" unique_id=580053104]
+layout_mode = 2
+theme = SubResource("Theme_5vvyt")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 20
+text = "Fork:"
+vertical_alignment = 1
+
+[node name="ForkEdit" type="TextEdit" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl" unique_id=1426309431]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -374.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_2w5on")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "e.g. https://github.com/smartcmd/MinecraftConsoles/releases/download/"
+emoji_menu_enabled = false
+tab_input_mode = false
+caret_type = 1
+caret_blink = true
+text_direction = 1
+
 [node name="ForkNameLbl" type="Label" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer" unique_id=308696570]
 layout_mode = 2
 theme = SubResource("Theme_5vvyt")
@@ -600,7 +632,7 @@ theme_override_font_sizes/font_size = 20
 text = "Fork Download Tag:"
 vertical_alignment = 1
 
-[node name="ForkTagLbl" type="TextEdit" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl" unique_id=1016936324]
+[node name="ForkTagEdit" type="TextEdit" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl" unique_id=1016936324]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -632,7 +664,7 @@ theme_override_font_sizes/font_size = 20
 text = "Fork Exe Name:"
 vertical_alignment = 1
 
-[node name="ForkExeName" type="TextEdit" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName" unique_id=347127825]
+[node name="ForkExeEdit" type="TextEdit" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName" unique_id=347127825]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -664,7 +696,7 @@ theme_override_font_sizes/font_size = 20
 text = "Fork Zip Name:"
 vertical_alignment = 1
 
-[node name="ForkZipName" type="TextEdit" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName" unique_id=1355567520]
+[node name="ForkZipEdit" type="TextEdit" parent="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName" unique_id=1355567520]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -845,10 +877,11 @@ autoplay = &"FadeOut2/FadeIn"
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_pressed"]
 [connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit" to="." method="_on_text_edit_text_changed"]
-[connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagLbl" to="." method="_on_text_edit_text_changed"]
-[connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeName" to="." method="_on_text_edit_text_changed"]
-[connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipName" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="focus_entered" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_mouse_entered"]

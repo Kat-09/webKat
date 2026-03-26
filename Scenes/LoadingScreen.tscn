@@ -463,6 +463,9 @@ parameters/looping = true
 [node name="GameZipDownloader" type="HTTPRequest" parent="." unique_id=833667735]
 use_threads = true
 
+[node name="GameMusicDownloader" type="HTTPRequest" parent="." unique_id=1251510056]
+use_threads = true
+
 [connection signal="animation_finished" from="Node/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="HatMan" to="HatMan" method="_on_animation_finished"]
 [connection signal="area_entered" from="HatMan/HatManArea2D" to="HatMan" method="_on_hat_man_area_2d_area_entered"]
