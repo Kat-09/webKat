@@ -419,6 +419,7 @@ use_threads = true
 timeout = 28.9
 
 [node name="Reset" type="Button" parent="Menu/MenuMargin/MenuVBox" unique_id=1404979311]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
