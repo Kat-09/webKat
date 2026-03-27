@@ -15,4 +15,4 @@ It also allows you to check for updates to easily check your instance for any up
 ## Loading Menu
 <img width="1920" height="1079" alt="image" src="https://github.com/user-attachments/assets/8beeb676-396a-4504-9e3f-42d4b6c76c72" />
 
-It also features a very fun looking animated loading menu :]
+It also features a very fun looking animated downloading menu :]
