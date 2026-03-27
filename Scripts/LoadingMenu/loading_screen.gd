@@ -6,16 +6,16 @@ var finished = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var dir = DirAccess.open("user://")
-	dir.make_dir_recursive("user://Launcher/Game/"+Shitfart.forkName)
+	dir.make_dir_recursive("user://Launcher/Game/"+globalKLauncher.forkName)
 	
-	var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
+	var file = FileAccess.open("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt", FileAccess.WRITE)
 	file.store_string("KLauncherUser")
-	Shitfart.uid = gen_unique_string(16)
-	var file2 = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
-	file2.store_string(Shitfart.uid)
+	globalKLauncher.uid = gen_unique_string(16)
+	var file2 = FileAccess.open("user://Launcher/Game/"+globalKLauncher.forkName+"/uid.dat", FileAccess.WRITE)
+	file2.store_string(globalKLauncher.uid)
 	
 	req.download_file = "user://Launcher/Temp/Minecraft.Client.zip"
-	req.request(Shitfart.fork + Shitfart.forkTag + "/" + Shitfart.forkZipName)
+	req.request(globalKLauncher.fork + globalKLauncher.forkTag + "/" + globalKLauncher.forkZipName)
 
 func gen_unique_string(length: int) -> String:
 	var ascii_letters_and_digits = "ABCDEF0123456789"
@@ -28,15 +28,15 @@ func _process(delta: float) -> void:
 	#Run finish() once, i couldn't figure out a better way to do this, there probably is a better way though.
 	if finished == true:
 		finish()
-		Shitfart.justCameFromUpdate = true
+		globalKLauncher.justCameFromUpdate = true
 		finished = false
 
 func _on_game_zip_downloader_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var dir = DirAccess.open("user://")
-	dir.make_dir_recursive("user://Launcher/Game/"+Shitfart.forkName+"/")
+	dir.make_dir_recursive("user://Launcher/Game/"+globalKLauncher.forkName+"/")
 	$Label.text = "Extracting..."
 	thread = Thread.new()
-	thread.start(extract_all_from_zip.bind("user://Launcher/Game/"+Shitfart.forkName+"/"))
+	thread.start(extract_all_from_zip.bind("user://Launcher/Game/"+globalKLauncher.forkName+"/"))
 	req.queue_free()
 
 #Got ts from godot docs lol

@@ -24,23 +24,23 @@ func _on_pressed() -> void:
 			$"../../../..".setGlobalsToLabelEdit()
 			dir.make_dir_recursive("user://Launcher/Game/")
 			var file3 = FileAccess.open("user://Launcher/Game/fork.txt", FileAccess.WRITE)
-			file3.store_string(Shitfart.fork)
+			file3.store_string(globalKLauncher.fork)
 			var file4 = FileAccess.open("user://Launcher/Game/forkName.txt", FileAccess.WRITE)
-			file4.store_string(Shitfart.forkName)
+			file4.store_string(globalKLauncher.forkName)
 			var file5 = FileAccess.open("user://Launcher/Game/forkTag.txt", FileAccess.WRITE)
-			file5.store_string(Shitfart.forkTag)
+			file5.store_string(globalKLauncher.forkTag)
 			var file6 = FileAccess.open("user://Launcher/Game/forkExeName.txt", FileAccess.WRITE)
-			file6.store_string(Shitfart.forkExeName)
+			file6.store_string(globalKLauncher.forkExeName)
 			var file7 = FileAccess.open("user://Launcher/Game/forkZipName.txt", FileAccess.WRITE)
-			file7.store_string(Shitfart.forkZipName)
+			file7.store_string(globalKLauncher.forkZipName)
 		if $"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text != "" and $"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text != "":
-			Shitfart.username = $"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text
-			Shitfart.uid = $"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text
-			dir.make_dir_recursive("user://Launcher/Game/"+Shitfart.forkName+"/")
-			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
-			file.store_string(Shitfart.username)
-			var file2 = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
-			file2.store_string(Shitfart.uid)
+			globalKLauncher.username = $"../HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit".text
+			globalKLauncher.uid = $"../HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit".text
+			dir.make_dir_recursive("user://Launcher/Game/"+globalKLauncher.forkName+"/")
+			var file = FileAccess.open("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt", FileAccess.WRITE)
+			file.store_string(globalKLauncher.username)
+			var file2 = FileAccess.open("user://Launcher/Game/"+globalKLauncher.forkName+"/uid.dat", FileAccess.WRITE)
+			file2.store_string(globalKLauncher.uid)
 		
 		
 		$"..".hide()

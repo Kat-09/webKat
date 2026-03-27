@@ -29,7 +29,7 @@ driver/driver="Pipewire"
 
 [autoload]
 
-Shitfart="*uid://ccok1vy83yc8a"
+globalKLauncher="*uid://ccok1vy83yc8a"
 RmDir="*uid://e5vmglpqwr42"
 
 [compression]
@@ -55,7 +55,7 @@ import/atlas_max_width=128
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/appimage-export-main/addons/plugin.cfg", "res://addons/appimage-export-main/plugin.cfg", "res://addons/remove_directory/plugin.cfg")
+enabled=PackedStringArray("res://addons/appimage-export-main/plugin.cfg", "res://addons/remove_directory/plugin.cfg")
 
 [gui]
 

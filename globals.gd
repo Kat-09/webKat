@@ -11,7 +11,7 @@ var launchMethod = ""
 var username
 var uid
 
-func _shitFartInit():
+func _globalKLauncherInit():
 	match OS.get_name():
 		"Windows":
 			launchMethod = ""

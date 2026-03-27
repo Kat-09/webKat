@@ -5,7 +5,7 @@ extends Control
 
 func _ready() -> void:
 	
-	Shitfart._shitFartInit()
+	globalKLauncher._globalKLauncherInit()
 	
 	doStuff()
 	
@@ -20,78 +20,78 @@ func _process(delta: float) -> void:
 		$Menu/MenuMargin/MenuVBox/Reset.disabled = true
 
 func setGlobalsToLabelEdit():
-	Shitfart.fork = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text
-	Shitfart.forkName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text
-	Shitfart.forkTag = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text
-	Shitfart.forkExeName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text
-	Shitfart.forkZipName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text
+	globalKLauncher.fork = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text
+	globalKLauncher.forkName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text
+	globalKLauncher.forkTag = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text
+	globalKLauncher.forkExeName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text
+	globalKLauncher.forkZipName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text
 
 func doStuff():
 	setGlobalsToLabelEdit()
 	var dir = DirAccess.open("user://")
-	if dir.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/username.txt"):
+	if dir.file_exists("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt"):
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = false
 		$Menu/MenuMargin/MenuVBox/StartBtn.visible = true
-		if (FileAccess.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/username.txt")):
-			Shitfart.username = FileAccess.get_file_as_string("user://Launcher/Game/"+Shitfart.forkName+"/username.txt")
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit.text = Shitfart.username
+		if (FileAccess.file_exists("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt")):
+			globalKLauncher.username = FileAccess.get_file_as_string("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt")
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit.text = globalKLauncher.username
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit.text = Shitfart.username
-			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/username.txt", FileAccess.WRITE)
-			file.store_string(Shitfart.username)
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl/UsernameEdit.text = globalKLauncher.username
+			var file = FileAccess.open("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt", FileAccess.WRITE)
+			file.store_string(globalKLauncher.username)
 			
-		if (FileAccess.file_exists("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat")):
-			Shitfart.uid = FileAccess.get_file_as_string("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat")
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit.text = Shitfart.uid
+		if (FileAccess.file_exists("user://Launcher/Game/"+globalKLauncher.forkName+"/uid.dat")):
+			globalKLauncher.uid = FileAccess.get_file_as_string("user://Launcher/Game/"+globalKLauncher.forkName+"/uid.dat")
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit.text = globalKLauncher.uid
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit.text = Shitfart.uid
-			var file = FileAccess.open("user://Launcher/Game/"+Shitfart.forkName+"/uid.dat", FileAccess.WRITE)
-			file.store_string(Shitfart.uid)
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl/UidEdit.text = globalKLauncher.uid
+			var file = FileAccess.open("user://Launcher/Game/"+globalKLauncher.forkName+"/uid.dat", FileAccess.WRITE)
+			file.store_string(globalKLauncher.uid)
 		
 		if (FileAccess.file_exists("user://Launcher/Game/fork.txt")):
 			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/fork.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text = Thing
-			Shitfart.fork = Thing
+			globalKLauncher.fork = Thing
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text = Shitfart.fork
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text = globalKLauncher.fork
 			var file = FileAccess.open("user://Launcher/Game/fork.txt", FileAccess.WRITE)
-			file.store_string(Shitfart.fork)
+			file.store_string(globalKLauncher.fork)
 			
 		if (FileAccess.file_exists("user://Launcher/Game/forkName.txt")):
 			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/forkName.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text = Thing
-			Shitfart.forkName = Thing
+			globalKLauncher.forkName = Thing
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text = Shitfart.forkName
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text = globalKLauncher.forkName
 			var file = FileAccess.open("user://Launcher/Game/forkName.txt", FileAccess.WRITE)
-			file.store_string(Shitfart.forkName)
+			file.store_string(globalKLauncher.forkName)
 			
 		if (FileAccess.file_exists("user://Launcher/Game/forkTag.txt")):
 			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/forkTag.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text = Thing
-			Shitfart.forkTag = Thing
+			globalKLauncher.forkTag = Thing
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text = Shitfart.forkTag
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text = globalKLauncher.forkTag
 			var file = FileAccess.open("user://Launcher/Game/forkTag.txt", FileAccess.WRITE)
-			file.store_string(Shitfart.forkTag)
+			file.store_string(globalKLauncher.forkTag)
 		
 		if (FileAccess.file_exists("user://Launcher/Game/forkExeName.txt")):
 			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/forkExeName.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text = Thing
-			Shitfart.forkExeName = Thing
+			globalKLauncher.forkExeName = Thing
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text = Shitfart.forkExeName
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text = globalKLauncher.forkExeName
 			var file = FileAccess.open("user://Launcher/Game/forkExeName.txt", FileAccess.WRITE)
-			file.store_string(Shitfart.forkExeName)
+			file.store_string(globalKLauncher.forkExeName)
 				
 		if (FileAccess.file_exists("user://Launcher/Game/forkZipName.txt")):
 			var Thing = FileAccess.get_file_as_string("user://Launcher/Game/forkZipName.txt")
 			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text = Thing
-			Shitfart.forkZipName = Thing
+			globalKLauncher.forkZipName = Thing
 		else:
-			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text = Shitfart.forkZipName
+			$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text = globalKLauncher.forkZipName
 			var file = FileAccess.open("user://Launcher/Game/forkZipName.txt", FileAccess.WRITE)
-			file.store_string(Shitfart.forkZipName)
+			file.store_string(globalKLauncher.forkZipName)
 	else:
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = true
 		$Menu/MenuMargin/MenuVBox/StartBtn.visible = false

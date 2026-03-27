@@ -32,7 +32,7 @@ func minimize():
 
 func _launchGame():
 	call_deferred("minimize")
-	if Shitfart.launchMethod == "wine":
-		OS.execute(Shitfart.launchMethod, [ ProjectSettings.globalize_path("user://Launcher/Game/"+Shitfart.forkName+"/Minecraft.Client.exe") ] , Shitfart.log)
+	if globalKLauncher.launchMethod == "wine":
+		OS.execute(globalKLauncher.launchMethod, [ ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+"/Minecraft.Client.exe") ] , globalKLauncher.log)
 	else:
-		OS.execute(ProjectSettings.globalize_path("user://Launcher/Game/"+Shitfart.forkName+"/Minecraft.Client.exe"), Shitfart.log)
+		OS.execute(ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+"/Minecraft.Client.exe"), globalKLauncher.log)

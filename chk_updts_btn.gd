@@ -45,7 +45,7 @@ func _on_pressed() -> void:
 		disableButtons()
 		dir.make_dir_recursive("user://Launcher/Temp/")
 		req.download_file = "user://Launcher/Temp/Minecraft.Client.exe"
-		req.request(Shitfart.fork + Shitfart.forkTag + "/" + Shitfart.forkExeName)
+		req.request(globalKLauncher.fork + globalKLauncher.forkTag + "/" + globalKLauncher.forkExeName)
 		$Label.text = "Checking for updates..."
 		updateClickCount += 1
 
@@ -67,15 +67,15 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 			$"../../../../AnimationPlayer".play("FadeOut")
 
 func loadPreviousHashFromFile():
-	if FileAccess.file_exists("user://Launcher/hash-"+Shitfart.forkName+".txt"):
-		var file = FileAccess.open("user://Launcher/hash-"+Shitfart.forkName+".txt", FileAccess.READ)
+	if FileAccess.file_exists("user://Launcher/hash-"+globalKLauncher.forkName+".txt"):
+		var file = FileAccess.open("user://Launcher/hash-"+globalKLauncher.forkName+".txt", FileAccess.READ)
 		var content = file.get_as_text()
 		return content
 	else:
 		return ""
 
 func saveDownloadedHashToFile():
-	var file = FileAccess.open("user://Launcher/hash-"+Shitfart.forkName+".txt", FileAccess.WRITE)
+	var file = FileAccess.open("user://Launcher/hash-"+globalKLauncher.forkName+".txt", FileAccess.WRITE)
 	file.store_string(downloadedhash)
 
 
