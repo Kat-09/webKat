@@ -23,6 +23,7 @@ func _on_focus_exited() -> void:
 
 func _on_pressed() -> void:
 	if disabled == false:
+		$"../../../../ButtonClick".play()
 		thread = Thread.new()
 		thread.start(_launchGame.bind())
 	
@@ -33,6 +34,6 @@ func minimize():
 func _launchGame():
 	call_deferred("minimize")
 	if globalKLauncher.launchMethod == "wine":
-		OS.execute(globalKLauncher.launchMethod, [ ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+globalKLauncher.forkExeName) ] , globalKLauncher.log)
+		OS.execute(globalKLauncher.launchMethod, [ ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+"/"+globalKLauncher.forkExeName) ] , globalKLauncher.log)
 	else:
-		OS.execute(ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+globalKLauncher.forkExeName), globalKLauncher.log)
+		OS.execute(ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+"/"+globalKLauncher.forkExeName), globalKLauncher.log)

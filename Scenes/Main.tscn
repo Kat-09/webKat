@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://bsn5ecuehbh0d" path="res://Scripts/Menu/options_btn.gd" id="7_frkhe"]
 [ext_resource type="Texture2D" uid="uid://blwbea2biqw5c" path="res://Assets/Panorama/panorama1.png" id="8_0sclb"]
 [ext_resource type="Script" uid="uid://c3os83fmh366r" path="res://Scripts/Menu/exit_btn.gd" id="8_1p5hy"]
-[ext_resource type="Script" uid="uid://dogrihdcxlepe" path="res://chk_updts_btn.gd" id="8_erwvk"]
+[ext_resource type="Script" uid="uid://dogrihdcxlepe" path="res://Scripts/chk_updts_btn.gd" id="8_erwvk"]
 [ext_resource type="Script" uid="uid://06xfjmbrcyc" path="res://Scripts/reset.gd" id="9_0sclb"]
 [ext_resource type="Texture2D" uid="uid://x5qnhqgjq84s" path="res://Assets/Panorama/panorama2.png" id="9_sxkr1"]
 [ext_resource type="Texture2D" uid="uid://bd2jlnesdw4ep" path="res://Assets/Panorama/panorama3.png" id="10_fq0cl"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://7hwexu7e8tnf" path="res://Assets/Menu/Menu/hudHud.png" id="11_346fj"]
 [ext_resource type="Texture2D" uid="uid://0oaigkp4styp" path="res://Assets/Panorama/panorama4.png" id="11_hwpts"]
 [ext_resource type="Texture2D" uid="uid://bonm22vstld" path="res://Assets/Panorama/panorama5.png" id="12_jyqft"]
+[ext_resource type="AudioStream" uid="uid://burgq84vp3iqx" path="res://Audio/ButtonMove.ogg" id="20_sxkr1"]
+[ext_resource type="AudioStream" uid="uid://uphfsbsus5c7" path="res://Audio/Click.ogg" id="21_fq0cl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wkp8b"]
 shader = ExtResource("1_grg3l")
@@ -47,6 +49,9 @@ texture = ExtResource("3_1p5hy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w5on"]
 texture = ExtResource("3_1p5hy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sclb"]
+bg_color = Color(0.32544094, 0.32544088, 0.3254409, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_346fj"]
 texture = ExtResource("3_1p5hy")
@@ -575,6 +580,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 placeholder_text = "Enter a Username Here."
 emoji_menu_enabled = false
 tab_input_mode = false
@@ -607,6 +613,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 placeholder_text = "Don't change Unless u know what ur doing."
 emoji_menu_enabled = false
 tab_input_mode = false
@@ -639,6 +646,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 placeholder_text = "Don't change Unless u know what ur doing."
 emoji_menu_enabled = false
 tab_input_mode = false
@@ -671,6 +679,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 text = "https://github.com/smartcmd/MinecraftConsoles/releases/download/"
 placeholder_text = "e.g. https://github.com/smartcmd/MinecraftConsoles/releases/download/"
 emoji_menu_enabled = false
@@ -704,6 +713,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 text = "smartcmd"
 placeholder_text = "Can be anything you want."
 emoji_menu_enabled = false
@@ -737,6 +747,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 text = "nightly"
 placeholder_text = "Fork Download Tag"
 emoji_menu_enabled = false
@@ -770,9 +781,11 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 text = "Minecraft.Client.exe"
 placeholder_text = "Fork Exe Name"
 emoji_menu_enabled = false
+deselect_on_focus_loss_enabled = false
 tab_input_mode = false
 caret_type = 1
 caret_blink = true
@@ -803,6 +816,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2w5on")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_0sclb")
 text = "LCEWindows64.zip"
 placeholder_text = "Fork Zip Name"
 emoji_menu_enabled = false
@@ -938,39 +952,53 @@ libraries/FadeOut2 = SubResource("AnimationLibrary_sxkr1")
 autoplay = &"FadeOut2/FadeIn"
 
 [node name="ButtonMove" type="AudioStreamPlayer" parent="." unique_id=455059939]
+stream = ExtResource("20_sxkr1")
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=2144116738]
+stream = ExtResource("21_fq0cl")
 
-[node name="Back" type="AudioStreamPlayer" parent="." unique_id=136184548]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1898320829]
+volume_db = -5.0
 
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="." method="onBtnFocusEntered"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="." method="onBtnFocusEntered"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/StartBtn" to="Menu/MenuMargin/MenuVBox/StartBtn" method="_on_pressed"]
-[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_focus_entered"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="." method="onBtnFocusEntered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="." method="onBtnFocusEntered"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/MultiBtn" to="Menu/MenuMargin/MenuVBox/MultiBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="." method="onBtnFocusEntered"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="." method="onBtnFocusEntered"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_pressed"]
 [connection signal="request_completed" from="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn/HTTPRequest" to="Menu/MenuMargin/MenuVBox/ChkUpdtsBtn" method="_on_http_request_request_completed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/Reset" to="." method="onBtnFocusEntered"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/Reset" to="." method="onBtnFocusEntered"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/Reset" to="Menu/MenuMargin/MenuVBox/Reset" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="." method="onBtnFocusEntered"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="." method="onBtnFocusEntered"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/OptionsBtn" to="Menu/MenuMargin/MenuVBox/OptionsBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="." method="onBtnFocusEntered"]
 [connection signal="focus_entered" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="." method="onBtnFocusEntered"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/MenuMargin/MenuVBox/ExitBtn" to="Menu/MenuMargin/MenuVBox/ExitBtn" method="_on_pressed"]
@@ -982,6 +1010,7 @@ autoplay = &"FadeOut2/FadeIn"
 [connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="focus_entered" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="." method="onBtnFocusEntered"]
 [connection signal="focus_entered" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Menu/MenuMargin/OptionsVBox/BackBtn" to="Menu/MenuMargin/OptionsVBox/BackBtn" method="_on_mouse_entered"]

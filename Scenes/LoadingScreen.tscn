@@ -427,9 +427,9 @@ region_enabled = true
 region_rect = Rect2(0, 0, 240, 7)
 
 [node name="Label" type="Label" parent="." unique_id=1647069930]
-offset_left = 1617.0
+offset_left = 1075.0
 offset_top = -70.0
-offset_right = 1920.0
+offset_right = 1889.0
 offset_bottom = -0.0036621094
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1.92523e-07, 0, 0.58874446, 1)
@@ -440,7 +440,7 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("9_rmj2b")
 theme_override_font_sizes/font_size = 32
 text = "Downloading..."
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1422113925]
@@ -471,3 +471,4 @@ use_threads = true
 [connection signal="area_entered" from="HatMan/HatManArea2D" to="HatMan" method="_on_hat_man_area_2d_area_entered"]
 [connection signal="area_entered" from="HatMan/HatManArea2D" to="Princess" method="_on_hat_man_area_2d_area_entered"]
 [connection signal="request_completed" from="GameZipDownloader" to="." method="_on_game_zip_downloader_request_completed"]
+[connection signal="request_completed" from="GameMusicDownloader" to="." method="_on_game_music_downloader_request_completed"]

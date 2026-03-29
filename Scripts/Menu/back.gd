@@ -44,6 +44,7 @@ func _on_pressed() -> void:
 			var file2 = FileAccess.open("user://Launcher/Game/"+globalKLauncher.forkName+"/uid.dat", FileAccess.WRITE)
 			file2.store_string(globalKLauncher.uid)
 		
-		
+		$"../../../../ButtonClick".play()
 		$"..".hide()
 		$"../../MenuVBox".show()
+		$"../../MenuVBox/OptionsBtn".grab_focus()

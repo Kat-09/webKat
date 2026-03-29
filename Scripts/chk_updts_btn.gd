@@ -42,6 +42,7 @@ func enableButtons():
 var dir = DirAccess.open("user://")
 func _on_pressed() -> void:
 	if disabled == false:
+		$"../../../../ButtonClick".play()
 		disableButtons()
 		dir.make_dir_recursive("user://Launcher/Temp/")
 		req.download_file = "user://Launcher/Temp/Minecraft.Client.exe"

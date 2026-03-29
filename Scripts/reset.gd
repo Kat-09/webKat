@@ -24,6 +24,7 @@ var clickCount = 0
 
 func _on_pressed() -> void:
 	if disabled == false:
+		$"../../../../ButtonClick".play()
 		clickCount += 1
 		match clickCount:
 			1:

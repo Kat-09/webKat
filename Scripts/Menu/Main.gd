@@ -4,10 +4,24 @@ extends Control
 #Yes, i am aware my implementation of an options menu is quite slow and kinda bad, but I don't mind as I would just like to get it working for now, I will revamp this at some point, but not yet.
 
 func _ready() -> void:
-	
 	globalKLauncher._globalKLauncherInit()
-	
+	$Menu/MenuMargin/MenuVBox/StartBtn.grab_focus()
 	doStuff()
+	
+func music():
+	var musicToPlay
+	match randi_range(0,4):
+		3:
+			musicToPlay = AudioStreamOggVorbis.load_from_file("user://Launcher/Music/0.ogg")
+		2:
+			musicToPlay = AudioStreamOggVorbis.load_from_file("user://Launcher/Music/1.ogg")
+		1:
+			musicToPlay = AudioStreamOggVorbis.load_from_file("user://Launcher/Music/2.ogg")
+		0:
+			musicToPlay = AudioStreamOggVorbis.load_from_file("user://Launcher/Music/3.ogg")
+	$Music.stream = musicToPlay
+	$Music.play()
+	
 	
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("shift") and $Menu/MenuMargin/MenuVBox/ChkUpdtsBtn.disabled == false:
@@ -31,6 +45,7 @@ func doStuff():
 	setGlobalsToLabelEdit()
 	var dir = DirAccess.open("user://")
 	if dir.file_exists("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt"):
+		music()
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = false
 		$Menu/MenuMargin/MenuVBox/StartBtn.visible = true
 		if (FileAccess.file_exists("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt")):
@@ -110,5 +125,10 @@ func doStuff():
 		$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UidLbl.visible = false
 		$Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/UsernameLbl.visible = false
 		setGlobalsToLabelEdit()
+		$Menu/MenuMargin/MenuVBox/ChkUpdtsBtn.grab_focus()
 		$Menu/MenuMargin/MenuVBox/ChkUpdtsBtn/Label.text = "Download Game!"
 		
+
+
+func onBtnFocusEntered() -> void:
+	$ButtonMove.play()
