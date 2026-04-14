@@ -21,7 +21,7 @@ func music():
 	$Music.stream = musicToPlay
 	$Music.play()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shift") and $Menu/MenuMargin/MenuVBox/ChkUpdtsBtn.disabled == false:
 		$Menu/MenuMargin/MenuVBox/Reset.visible = true
 		$Menu/MenuMargin/MenuVBox/Reset.disabled = false

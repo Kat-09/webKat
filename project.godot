@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="KLauncher"
-config/description="KLauncher is a launcher for Minecraft: Legacy Edition, made by me."
-config/version="v0.3.0"
+config/description="KLauncher is a launcher for Minecraft: Legacy Edition, made by me.s"
+config/version="v0.3.2"
 run/main_scene="uid://b2i46equav5t5"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=60
@@ -55,7 +55,7 @@ import/atlas_max_width=128
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/appimage-export-main/plugin.cfg", "res://addons/remove_directory/plugin.cfg")
+enabled=PackedStringArray("res://addons/appimage-export-main/plugin.cfg", "res://addons/appimage/plugin.cfg", "res://addons/remove_directory/plugin.cfg")
 
 [gui]
 
@@ -123,7 +123,6 @@ environment/ssao/quality=0
 environment/ssao/half_size=false
 environment/ssil/quality=0
 environment/ssil/half_size=false
-anti_aliasing/quality/msaa_2d=1
 anti_aliasing/quality/use_debanding=true
 textures/decals/filter=0
 textures/light_projectors/filter=0

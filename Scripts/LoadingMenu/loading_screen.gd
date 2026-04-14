@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		globalKLauncher.justCameFromUpdate = true
 		finished = 0
 
-func _on_game_zip_downloader_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_game_zip_downloader_request_completed(_none, _none1, _none2, _none3) -> void:
 	var dir = DirAccess.open("user://")
 	dir.make_dir_recursive("user://Launcher/Game/"+globalKLauncher.forkName+"/")
 	$Label.text = "Extracting Files..."
@@ -109,12 +109,12 @@ func finish():
 func _exit_tree() -> void:
 	thread.wait_to_finish()
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_none) -> void:
 	RmDir.rmdir("user://Launcher/Temp/")
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 
 
-func _on_game_music_downloader_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_game_music_downloader_request_completed(_none, _none1, _none2, _none3) -> void:
 	var dir = DirAccess.open("user://")
 	dir.make_dir_recursive("user://Launcher/Music/")
 	thread = Thread.new()

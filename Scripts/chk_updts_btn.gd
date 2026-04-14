@@ -2,6 +2,7 @@ extends Button
 
 @onready var req := $HTTPRequest
 var updateClickCount = 0
+var dir = DirAccess.open("user://")
 
 const CHUNK_SIZE = 1024
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +31,7 @@ func disableButtons():
 	$"../../../".modulate = Color(0.29, 0.29, 0.29, 1.0)
 
 func enableButtons():
-	var dir = DirAccess.open("user://Launcher/Temp/")
+	dir = DirAccess.open("user://Launcher/Temp/")
 	dir.remove("user://Launcher/Temp/Minecraft.Client.exe")
 	dir.remove("user://Launcher/Temp/Minecraft.Client.zip")
 	$"../StartBtn".disabled = false
@@ -39,7 +40,7 @@ func enableButtons():
 	$"../ExitBtn".disabled = false
 	$"../../../".modulate = Color(1.0, 1.0, 1.0, 1.0)
 
-var dir = DirAccess.open("user://")
+
 func _on_pressed() -> void:
 	if disabled == false:
 		$"../../../../ButtonClick".play()
@@ -52,7 +53,7 @@ func _on_pressed() -> void:
 
 var downloadedhash = null
 
-func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_http_request_request_completed(_none, _none1, _none2, _none3) -> void:
 	downloadedhash = hash_file("user://Launcher/Temp/Minecraft.Client.exe")
 	if downloadedhash != loadPreviousHashFromFile():
 		saveDownloadedHashToFile()

@@ -6,7 +6,7 @@ var forkZipName
 var forkName
 var forkTag
 var justCameFromUpdate = false
-var log = []
+var logpath = []
 var launchMethod = ""
 var username
 var uid
