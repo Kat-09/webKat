@@ -41,10 +41,10 @@ func _getOptionsValues():
 			forkZipName = FileAccess.get_file_as_string("user://Launcher/Game/forkZipName.txt")
 			launchMethod = FileAccess.get_file_as_string("user://Launcher/Game/launchMethod.txt")
 	else:
-		fork = "https://github.com/smartcmd/MinecraftConsoles/releases/download/"
+		fork = "https://github.com/MCLCE/MinecraftConsoles/releases/download/"
 		forkExeName = "Minecraft.Client.exe"
 		forkZipName = "LCEWindows64.zip"
-		forkName = "smartcmd"
+		forkName = "MCLCE"
 		forkTag = "nightly"
 		username = "KLauncherUser"
 		uid = "0xBBBBBBBBBBBBBBBB"

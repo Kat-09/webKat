@@ -12,7 +12,7 @@ config_version=5
 
 config/name="KLauncher"
 config/description="KLauncher is a launcher for Minecraft: Legacy Edition, made by me.s"
-config/version="v0.3.2"
+config/version="v0.3.3"
 run/main_scene="uid://b2i46equav5t5"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=60
@@ -55,7 +55,7 @@ import/atlas_max_width=128
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/appimage-export-main/plugin.cfg", "res://addons/appimage/plugin.cfg", "res://addons/remove_directory/plugin.cfg")
+enabled=PackedStringArray("res://addons/appimage-export-main/plugin.cfg", "res://addons/remove_directory/plugin.cfg")
 
 [gui]
 
