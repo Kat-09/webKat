@@ -42,3 +42,17 @@ func _on_pressed() -> void:
 			5:
 				RmDir.rmdir("user://Launcher")
 				$"../../../.."._ready()
+				globalKLauncher.fork = "https://github.com/MCLCE/MinecraftConsoles/releases/download/"
+				globalKLauncher.forkExeName = "Minecraft.Client.exe"
+				globalKLauncher.forkZipName = "LCEWindows64.zip"
+				globalKLauncher.forkName = "MCLCE"
+				globalKLauncher.forkTag = "nightly"
+				globalKLauncher.username = "KLauncherUser"
+				globalKLauncher.uid = gen_unique_string(16)
+
+func gen_unique_string(length: int) -> String:
+	var ascii_letters_and_digits = "ABCDEF0123456789"
+	var result = ""
+	for i in range(length):
+		result += ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()]
+	return "0x" + result

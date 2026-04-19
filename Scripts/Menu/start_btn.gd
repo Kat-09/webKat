@@ -20,6 +20,7 @@ func _on_pressed() -> void:
 	if disabled == false:
 		$"../../../../ButtonClick".play()
 		if globalKLauncher.launchMethod == "wine":
+			print(ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+"/"+globalKLauncher.forkExeName))
 			OS.create_process(globalKLauncher.launchMethod, [ ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+"/"+globalKLauncher.forkExeName) ])
 		else:
 			OS.create_process(ProjectSettings.globalize_path("user://Launcher/Game/"+globalKLauncher.forkName+"/"+globalKLauncher.forkExeName), [])

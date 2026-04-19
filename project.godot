@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="KLauncher"
-config/description="KLauncher is a launcher for Minecraft: Legacy Edition, made by me.s"
-config/version="v0.3.3"
+config/description="KLauncher is a launcher for Minecraft: Legacy Edition, made by me."
+config/version="v0.3.4"
 run/main_scene="uid://b2i46equav5t5"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=60

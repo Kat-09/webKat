@@ -117,6 +117,7 @@ func _on_animation_player_animation_finished(_none) -> void:
 func _on_game_music_downloader_request_completed(_none, _none1, _none2, _none3) -> void:
 	var dir = DirAccess.open("user://")
 	dir.make_dir_recursive("user://Launcher/Music/")
+	thread.wait_to_finish()
 	thread = Thread.new()
 	thread.start(music_extract_all_from_zip.bind("user://Launcher/Music/"))
 	musicreq.queue_free()

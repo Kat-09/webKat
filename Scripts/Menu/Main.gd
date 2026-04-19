@@ -20,7 +20,8 @@ func music():
 			musicToPlay = AudioStreamOggVorbis.load_from_file("user://Launcher/Music/3.ogg")
 	$Music.stream = musicToPlay
 	$Music.play()
-	
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shift") and $Menu/MenuMargin/MenuVBox/ChkUpdtsBtn.disabled == false:
 		$Menu/MenuMargin/MenuVBox/Reset.visible = true
@@ -32,18 +33,51 @@ func _process(_delta: float) -> void:
 		$Menu/MenuMargin/MenuVBox/Reset.disabled = true
 
 func setGlobalsToLabelEdit():
+	var dir = DirAccess.open("user://")
 	globalKLauncher.fork = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text
 	globalKLauncher.forkName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text
 	globalKLauncher.forkTag = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text
 	globalKLauncher.forkExeName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text
 	globalKLauncher.forkZipName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text
-	globalKLauncher.launchMethod = $"Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/Launch Method/LaunchEdit".text
+	
+	if !dir.dir_exists("user://Launcher/Game/"):
+		match OS.get_name():
+			"Windows":
+				globalKLauncher.launchMethod = ""
+				print("wtf")
+			"macOS":
+				globalKLauncher.launchMethod = "wine"
+			"Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
+				globalKLauncher.launchMethod = "wine"
+				print("t")
+			"Android":
+				globalKLauncher.launchMethod = "yeah ok what"
+			"iOS":
+				globalKLauncher.launchMethod = "yeah uhhh idk how that's gonna work uhhhh hi"
+			"Web":
+				globalKLauncher.launchMethod = "oh okay hi uh idk how u got ts but ok"
+		dir.make_dir_recursive("user://Launcher/Game/")
+		var file = FileAccess.open("user://Launcher/Game/launchMethod.txt", FileAccess.WRITE)
+		file.store_string(globalKLauncher.launchMethod)
+		var file3 = FileAccess.open("user://Launcher/Game/fork.txt", FileAccess.WRITE)
+		file3.store_string(globalKLauncher.fork)
+		var file4 = FileAccess.open("user://Launcher/Game/forkName.txt", FileAccess.WRITE)
+		file4.store_string(globalKLauncher.forkName)
+		var file5 = FileAccess.open("user://Launcher/Game/forkTag.txt", FileAccess.WRITE)
+		file5.store_string(globalKLauncher.forkTag)
+		var file6 = FileAccess.open("user://Launcher/Game/forkExeName.txt", FileAccess.WRITE)
+		file6.store_string(globalKLauncher.forkExeName)
+		var file7 = FileAccess.open("user://Launcher/Game/forkZipName.txt", FileAccess.WRITE)
+		file7.store_string(globalKLauncher.forkZipName)
+	$"Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/Launch Method/LaunchEdit".text = globalKLauncher.launchMethod
+		
+		
 	
 func doStuff():
-	setGlobalsToLabelEdit()
 	var dir = DirAccess.open("user://")
-	if dir.file_exists("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt"):
+	if dir.file_exists("user://Launcher/hash-"+str(globalKLauncher.forkName)+".txt"):
 		music()
+		print("fart")
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = false
 		$Menu/MenuMargin/MenuVBox/StartBtn.visible = true
 		if (FileAccess.file_exists("user://Launcher/Game/"+globalKLauncher.forkName+"/username.txt")):
@@ -113,7 +147,7 @@ func doStuff():
 			globalKLauncher.launchMethod = Thing
 		else:
 			$"Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/Launch Method/LaunchEdit".text = globalKLauncher.launchMethod
-			var file = FileAccess.open("user://Launcher/Game/forkZipName.txt", FileAccess.WRITE)
+			var file = FileAccess.open("user://Launcher/Game/launchMethod.txt", FileAccess.WRITE)
 			file.store_string(globalKLauncher.launchMethod)
 	else:
 		$Menu/MenuMargin/MenuVBox/StartBtn.disabled = true
