@@ -34,11 +34,6 @@ func _process(_delta: float) -> void:
 
 func setGlobalsToLabelEdit():
 	var dir = DirAccess.open("user://")
-	globalKLauncher.fork = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkLbl/ForkEdit.text
-	globalKLauncher.forkName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkNameLbl/ForkNameEdit.text
-	globalKLauncher.forkTag = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkTagLbl/ForkTagEdit.text
-	globalKLauncher.forkExeName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkExeName/ForkExeEdit.text
-	globalKLauncher.forkZipName = $Menu/MenuMargin/OptionsVBox/HUD/MarginContainer/VBoxContainer/ForkZipName/ForkZipEdit.text
 	
 	if !dir.dir_exists("user://Launcher/Game/"):
 		match OS.get_name():
